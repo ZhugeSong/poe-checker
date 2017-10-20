@@ -2,15 +2,12 @@
 "use strict";
 
 const https = require("https");
+const config = require("./config");
 
-const toCheck = {
-	//"AccountName": ["Characters","..."],
-};
+for(let username in config.toCheck) {
+	const charactersToList = config.toCheck[username];
 
-for(let username in toCheck) {
-	const charactersToList = toCheck[username];
-
-	if(toCheck.hasOwnProperty(username)) {
+	if(config.toCheck.hasOwnProperty(username)) {
 		const req = https.request(
 			{
 				hostname: "www.pathofexile.com",
