@@ -24,3 +24,11 @@ Couldn't read characters: 403 Forbidden
 ```
 
 If the API returns 403, that is generally because the account hasn't set its character information to be public (it is private by default). This can be changed by logging in to the [Path of Exile website](pathofexile.com) and adjusting the privacy settings.
+
+If you get the following error:
+
+```
+Error: Cannot find module './config'
+```
+
+You need to create a configuration file `config.js` in the same directory as the main script. Open and read [config.example.js](./config.example.js); you can use it as a base for your personal configuration.
