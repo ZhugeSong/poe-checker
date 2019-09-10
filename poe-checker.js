@@ -18,8 +18,14 @@ for(let username in config.toCheck) {
 				console.log(`\n${username}:`);
 
 				if(resp.statusCode == 200) {
-					resp.on('data', (d) => {
-						const characters = JSON.parse(d);
+					let chunks = [];
+
+					resp.on("data", d => {
+						chunks.push(d);
+					});
+
+					resp.on("end", () => {
+						const characters = JSON.parse(chunks.join(""));
 
 						for(let i in characters) {
 							const character = characters[i];
